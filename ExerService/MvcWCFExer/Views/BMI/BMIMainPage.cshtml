@@ -1,0 +1,278 @@
+﻿@model MvcWCFExer.BMIModel
+
+
+<br />
+
+<div class="">
+    <div class="form-group col-md-4 panel panel-primary" id="heightConv">
+        <div class="panel-heading">Height Converter</div>
+        <div class="panel-body">
+            <label id="titleHeader">Feet to Centimeter</label> <br />
+            <div class="row">
+                <div>
+                    @Html.LabelFor(x => x.FtValue, new { Class = "col-xs-2" })
+                </div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(x => x.FtValue, new { id = "txtFt", Class = "form-control col-xs-9" })
+                </div>
+            <div>
+                <button type="submit" class="btn btn-primary" id="btnConvertFtToCM"> Convert </button>
+            </div>
+                </div><br />
+                @Html.LabelFor(x => x.cmValue)
+                @Html.Label("-", new { id = "lblCm" })<br />
+             
+
+                <div class="fluid">
+                    <label id="titleHeader">Centimeter to Feet</label><br />
+                    <div class="row">
+                        <div>
+                            @Html.LabelFor(x => x.cmValue, new { Class = "col-xs-3" })
+                        </div>
+                        <div class="col-md-5">
+                            @Html.TextBoxFor(x => x.cmValue, new { id = "txtCM", Class = "form-control col-xs-9" })
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary" id="btnConvertCmToFt"> Convert </button>
+                        </div>
+                    </div><br />
+                        @Html.LabelFor(x => x.FtValue)
+                        @Html.Label("-", new { id = "lblFt" })<br />
+                     
+                    </div>
+            </div>
+    </div>
+    <div class="form-group col-md-4 panel panel-primary" id="frmWeight">
+        <div class="panel-heading">Weight Converter</div>
+        <div class="panel-body">
+            <label id="titleHeader">Kilograms to Lbs</label><br />
+            <div class="row">
+                <div>
+                    @Html.LabelFor(x => x.kgValue, new { Class = "col-xs-3" , id="lblKgs" })
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(x => x.kgValue, new { id = "txtKg", Class = "form-control col-xs-9 " })<br />
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" id="btnConvertKgToLb"> Convert </button>
+                </div>
+            </div><br />
+            @Html.LabelFor(x => x.lbValue)
+            @Html.Label("-", new { id = "lblLbs" })<br />
+            
+            <div class="fluid">
+                <label id="titleHeader">Lbs to Kilograms</label><br />
+                <div class="row">
+                    <div>
+                        @Html.LabelFor(x => x.lbValue, new { Class = "col-xs-2" })
+                    </div>
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(x => x.lbValue, new { id = "txtLb", Class = "form-control col-xs-9 " })
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" id="btnConvertLbToKg"> Convert </button>
+                    </div>
+                </div><br />
+                @Html.LabelFor(x => x.kgValue)
+                @Html.Label("-", new { id = "lblKg" })<br />
+               
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-4 panel panel-primary" id="bmiConv">
+        <div class="panel-heading">BMI Calculator</div>
+        <div class="panel-body">
+            <label id="titleHeaders">GET BMI</label><br />
+            <div class="row">
+                <div>
+                    @Html.LabelFor(x => x.bmiHeight, new { Class = "col-xs-3" })
+                </div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(x => x.bmiHeight, new { id = "txtHeight", Class = "form-control col-xs-9 " })
+                </div>
+                <div id="weight">
+                    @Html.LabelFor(x => x.bmiWeight, new { Class = "col-xs-3" , id="weightt"})
+                </div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(x => x.bmiWeight, new { id = "txtWeight", Class = "form-control col-xs-9" })
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" id="btnCalculateBMI"> Calculate </button>
+                </div>
+            </div><br />
+          
+         
+          
+            @Html.Label("BMI: ")
+            @Html.Label("-", new { id = "lblBMI" })<br />
+            @Html.LabelFor(x => x.bmiStatus)
+            @Html.Label("-", new { id = "lblStatus" })<br />
+          
+        </div>
+        </div>
+</div>
+
+@section scripts{
+    <script>
+        var getFttoCmUrl = '@Url.Action("GetFtToCm","BMI")';
+        var getCmToFtUrl = '@Url.Action("GetCmToFt", "BMI")';
+        var getKgToLbUrl = '@Url.Action("GetKgToLb", "BMI")';
+        var getLbToKgUrl = '@Url.Action("GetLbToKg", "BMI")';
+        var calculateBmi = '@Url.Action("GetBMI", "BMI")';
+
+        $(document).ready(function () {
+
+            //Ft To Cm
+            $('#btnConvertFtToCM').on('click', function () {
+                var data = {
+                    ft: $('#txtFt').val(),
+                }
+                if (data.ft == "" || isNaN(data.ft) == true || data.ft <= 0) {
+                    $('#lblCm').text("Invalid Input!")
+                }
+                else {
+                    $.ajax({
+                        url: getFttoCmUrl,
+                        data: data,
+                        type: 'GET',
+                        success: function (data) {
+                            GetFtToCmSuccess(data);
+                        },
+                        error: function () {
+                            alert('Something went wrong')
+                        }
+                    })
+                }
+            });
+
+            //CM to FT
+            $('#btnConvertCmToFt').on('click', function () {
+                var data = {
+                    cm: $('#txtCM').val(),
+                }
+                if (data.cm == "" || isNaN(data.cm) == true || data.cm <= 0) {
+                    $('#lblFt').text("Invalid Input")
+                }
+                else{
+                    $.ajax({
+                        url: getCmToFtUrl,
+                        data: data,
+                        type: 'GET',
+                        success: function (data) {
+                            GetCmToFtSuccess(data);
+                        },
+                        error: function () {
+                            alert('Something went wrong')
+                        }
+                    })
+                }
+            });
+
+            //Kg to LB
+            $('#btnConvertKgToLb').on('click', function () {
+                var data = {
+                    kg: $('#txtKg').val(),
+                }
+
+                if (data.kg == "" || isNaN(data.kg) == true || data.kg <= 0) {
+                    $('#lblLbs').text("Invalid Input!")
+                }
+                else {
+                    $.ajax({
+                        url: getKgToLbUrl,
+                        data: data,
+                        type: 'GET',
+                        success: function (data) {
+                            GetKgToLbSuccess(data);
+                        },
+                        error: function () {
+                            alert(data);
+                            alert('Something went wrong')
+                        }
+                    })
+                }
+            });
+
+            //LB To KG
+            $('#btnConvertLbToKg').on('click', function () {
+                var data = {
+                    lb: $('#txtLb').val(),
+                }
+
+                if (data.lb == "" || isNaN(data.lb) == true || data.lb <= 0) {
+                    $('#lblKg').text("Invalid Input")
+                }
+                else {
+                    $.ajax({
+                        url: getLbToKgUrl,
+                        data: data,
+                        type: 'GET',
+                        success: function (data) {
+                            GetLbToKgSuccess(data);
+                        },
+                        error: function () {
+                            alert(data);
+                            alert('Something went wrong')
+                        }
+                    })
+                }
+            });
+
+            //Calculate BMI
+            $('#btnCalculateBMI').on('click', function () {
+                var data = {
+                    height: $('#txtHeight').val(),
+                    weight: $('#txtWeight').val(),
+                }
+
+                if (isNaN(data.height) == true || data.height == "" || isNaN(data.weight) == true || data.weight == "" || data.height <= 0 || data.weight <= 0) {
+                    $('#lblBMI').text("Invalid Input")
+                    $('#lblStatus').text("Invalid Input")
+                }
+
+                else {
+                    $.ajax({
+                        url: calculateBmi,
+                        data: data,
+                        type: 'GET',
+                        success: function (data) {
+                            CalculateBMISuccess(data);
+                        },
+                        error: function () {
+                            alert('Something went wrong')
+                        }
+                    })
+                }
+
+
+            });
+
+
+
+            //ft To Cm
+            function GetFtToCmSuccess(data) {
+                $('#lblCm').text(data.Result)
+            }
+            //Cm to FT
+            function GetCmToFtSuccess(data) {
+                $('#lblFt').text(data.Result)
+            }
+            //Kg to Lb
+            function GetKgToLbSuccess(data) {
+                $('#lblLbs').text(data.Result)
+            }
+            //Lb to Kg
+            function GetLbToKgSuccess(data) {
+                $('#lblKg').text(data.Result)
+            }
+            //Calculate BMI
+            function CalculateBMISuccess(data) {
+                $('#lblBMI').text(data.Result),
+                $('#lblStatus').text(data.Status)
+            }
+
+        })
+
+
+    </script>
+}

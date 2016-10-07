@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BMIService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2121/BMIService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2121/BMIService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2121/BMIService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExerService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBMIService1_ConvertCmToFeet_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertCmToFeet" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_ConvertCmToFeet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertCmToFeetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_ConvertFeetToCm_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertFeetToCm" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_ConvertFeetToCm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertFeetToCmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_ConvertKgtoLbs_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertKgtoLbs" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_ConvertKgtoLbs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertKgtoLbsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_ConvertLbsToKgs_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertLbsToKgs" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_ConvertLbsToKgs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConvertLbsToKgsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_CalculateBMI_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateBMI" />
+  </wsdl:message>
+  <wsdl:message name="IBMIService1_CalculateBMI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateBMIResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBMIService1">
+    <wsdl:operation name="ConvertCmToFeet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBMIService1/ConvertCmToFeet" message="tns:IBMIService1_ConvertCmToFeet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBMIService1/ConvertCmToFeetResponse" message="tns:IBMIService1_ConvertCmToFeet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertFeetToCm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBMIService1/ConvertFeetToCm" message="tns:IBMIService1_ConvertFeetToCm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBMIService1/ConvertFeetToCmResponse" message="tns:IBMIService1_ConvertFeetToCm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertKgtoLbs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBMIService1/ConvertKgtoLbs" message="tns:IBMIService1_ConvertKgtoLbs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBMIService1/ConvertKgtoLbsResponse" message="tns:IBMIService1_ConvertKgtoLbs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertLbsToKgs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBMIService1/ConvertLbsToKgs" message="tns:IBMIService1_ConvertLbsToKgs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBMIService1/ConvertLbsToKgsResponse" message="tns:IBMIService1_ConvertLbsToKgs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateBMI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBMIService1/CalculateBMI" message="tns:IBMIService1_CalculateBMI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBMIService1/CalculateBMIResponse" message="tns:IBMIService1_CalculateBMI_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBMIService1" type="tns:IBMIService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConvertCmToFeet">
+      <soap:operation soapAction="http://tempuri.org/IBMIService1/ConvertCmToFeet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertFeetToCm">
+      <soap:operation soapAction="http://tempuri.org/IBMIService1/ConvertFeetToCm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertKgtoLbs">
+      <soap:operation soapAction="http://tempuri.org/IBMIService1/ConvertKgtoLbs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertLbsToKgs">
+      <soap:operation soapAction="http://tempuri.org/IBMIService1/ConvertLbsToKgs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateBMI">
+      <soap:operation soapAction="http://tempuri.org/IBMIService1/CalculateBMI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BMIService">
+    <wsdl:port name="BasicHttpBinding_IBMIService1" binding="tns:BasicHttpBinding_IBMIService1">
+      <soap:address location="http://localhost:2121/BMIService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

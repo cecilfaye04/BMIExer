@@ -1,0 +1,90 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.fluid {
+margin-top: 35px;
+}
+
+#heightConv {
+    margin-right: 12px;
+    margin-left: -30px;
+        margin-top: 34px;
+
+}
+
+#bmiConv {
+margin-left: 10px;
+  margin-top: 34px;
+}
+
+#frmWeight {
+      margin-top: 34px;
+}
+
+.panel-heading {
+font-weight: bold;
+text-align: center;
+font-size:x-large;
+
+}
+
+label#titleHeader {
+    margin-left: 74px;
+    margin-bottom: 13px;
+    font-size: 18px;
+    color: brown;
+}
+label.col-xs-2{
+    margin-right: -16px;
+    margin-top: 5px;
+    }
+label.col-xs-3 {
+    margin-right: 11px;
+    margin-top: 5px;
+}
+
+label#lblKgs {
+    margin-right: -13px; 
+}
+
+input#txtWeight {
+    margin-top: 8px;
+}
+
+label#weightt {
+        margin-top: 12px;
+}
+
+button#btnCalculateBMI {
+         margin-top: 25px;
+    margin-left: 129px;
+}
+label#titleHeaders {
+       margin-top: 22px;
+    margin-left: 114px;
+    margin-bottom: 13px;
+    font-size: 18px;
+    color: brown;
+}

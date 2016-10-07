@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a024c1b0-1a20-4e13-b5d0-ca5652d1652e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2121/BMIService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BMIService4.xsd" MetadataType="Schema" ID="e31419c7-4734-4a02-adee-bef786f8f7a8" SourceId="1" SourceUrl="http://localhost:2121/BMIService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BMIService41.xsd" MetadataType="Schema" ID="d86887fd-c74e-42db-ab60-a6b6f730e199" SourceId="1" SourceUrl="http://localhost:2121/BMIService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BMIService1.wsdl" MetadataType="Wsdl" ID="1fd8ef7a-1508-4ccd-a6da-b041889e364c" SourceId="1" SourceUrl="http://localhost:2121/BMIService.svc?wsdl" />
+    <MetadataFile FileName="BMIService42.xsd" MetadataType="Schema" ID="787bc39e-b907-4946-8b42-e7a302991bd5" SourceId="1" SourceUrl="http://localhost:2121/BMIService.svc?xsd=xsd2" />
+    <MetadataFile FileName="BMIService1.disco" MetadataType="Disco" ID="fdea8347-e61a-4009-b198-2d413b60c6e6" SourceId="1" SourceUrl="http://localhost:2121/BMIService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
